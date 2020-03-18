@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "edu.itc.gic.m1.productmanagment"
+        applicationId "edu.itc.gic.m1.s2.databinding_sample"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
@@ -21,9 +21,6 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
@@ -51,7 +48,6 @@ dependencies {
     // alternately - if using Java8, use the following instead of lifecycle-compiler
 //    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
-    // Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
