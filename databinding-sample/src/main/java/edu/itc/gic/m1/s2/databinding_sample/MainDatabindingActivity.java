@@ -1,17 +1,17 @@
 package edu.itc.gic.m1.s2.databinding_sample;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
 import edu.itc.gic.m1.s2.databinding_sample.databinding.ActivityMainDatabindingBinding;
 
 public class MainDatabindingActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainDatabindingActivity";
 
 //    TextView textVoteNumber;
 
@@ -30,7 +30,21 @@ public class MainDatabindingActivity extends AppCompatActivity {
 
         mViewModel = new ViewModelProvider(this).get(MyDatabindingViewModel.class);
 
-        mBinding.setViewModel(mViewModel);
+        // These 2 invokes are equivalent
+//        mBinding.setViewModel(mViewModel);
+        mBinding.setVariable(BR.viewModel, mViewModel);
+
+        // String format in Java
+        String myPhone = "This is my phone number: %s";
+        String message = String.format(myPhone, "097123456");
+        Log.i(TAG, "onCreate: " + message);
+
+        // String format from string resource to Java
+        String msgDetail = String.format(getString(R.string.confirm_profile_detail_fmt),
+                mViewModel.getUser().getName(),
+                mViewModel.getUser().getEmail());
+
+        // See binding string format in XML layout
 
 //        TextView textName = findViewById(R.id.textView);
 //        textName.setText(name);

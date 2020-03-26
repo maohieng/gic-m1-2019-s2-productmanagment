@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">databinding-sample</string>
+    <string name="default_name">Default Name</string>
+
+    <string name="confirm_profile_detail_fmt">Are you %1$s with email %2$s?</string>
 </resources>
