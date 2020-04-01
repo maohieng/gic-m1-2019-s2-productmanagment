@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">databinding-assignment</string>
+
+    <string name="default_input_name">Input your name below</string>
+    <string name="default_input_age">Input your age</string>
+    <string name="your_age_fmt">Your age: %1$s</string>
+</resources>

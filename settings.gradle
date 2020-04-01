@@ -1,4 +1,4 @@
 rootProject.name='ProductManagment'
 include ':app'
-include ':arch-sample'
 include ':databinding-sample'
+include ':databinding-assignment'
