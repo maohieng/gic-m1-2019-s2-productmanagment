@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">databinding-recyclerview</string>
+    <string name="amount_fmt">%1$s$</string>
+</resources>
