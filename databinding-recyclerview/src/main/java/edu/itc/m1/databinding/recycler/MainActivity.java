@@ -2,15 +2,20 @@ package edu.itc.m1.databinding.recycler;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Arrays;
 
 import edu.itc.m1.databinding.recycler.databinding.ActivityMainBinding;
 import edu.itc.m1.databinding.recycler.widget.BindableRecyclerAdapter;
+import edu.itc.m1.databinding.recycler.widget.OnItemRecyclerClickListener;
 import edu.itc.m1.databinding.recycler.widget.RecyclerConfiguration;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
 
         final BindableRecyclerAdapter<Integer> adapter = new BindableRecyclerAdapter<>(this,
                 R.layout.item_list_top_up_amount, BR.amount);
+
+        final OnItemRecyclerClickListener itemClickListener = new OnItemRecyclerClickListener() {
+            @Override
+            public void onItemRecyclerClick(@NonNull RecyclerView.ViewHolder holder, @NonNull View clickedView) {
+                int position = holder.getAdapterPosition();
+                Integer amount = adapter.getData().get(position);
+                Toast.makeText(MainActivity.this, "Click position: " + position + ", data: " + amount, Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        adapter.setOnItemRecyclerClickListener(itemClickListener);
 
         RecyclerConfiguration config = new RecyclerConfiguration.Builder()
                 .setHasFixedSize(true)
