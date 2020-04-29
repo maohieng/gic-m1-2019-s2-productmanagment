@@ -21,9 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickSubmitCommand(View view) {
         String command = editText.getText().toString();
-        Intent intent = new Intent(this, HelloIntentService.class);
+        Intent intent = new Intent(this, HelloForgroundService.class);
         intent.putExtra("command", command);
         startService(intent);
+
     }
 
     @Override
