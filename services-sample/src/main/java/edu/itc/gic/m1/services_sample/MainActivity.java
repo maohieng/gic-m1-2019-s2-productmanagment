@@ -19,20 +19,19 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.editText);
     }
 
+    public void clickSubmitCommand(View view) {
+        String command = editText.getText().toString();
+        Intent intent = new Intent(this, HelloIntentService.class);
+        intent.putExtra("command", command);
+        startService(intent);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         // Stop HelloService when this activity is destroyed.
 //        Intent intent = new Intent(this, HelloService.class);
 //        stopService(intent);
-    }
-
-    public void clickSubmitCommand(View view) {
-        String command = editText.getText().toString();
-
-        Intent intent = new Intent(this, HelloService.class);
-        intent.putExtra("command", command);
-        startService(intent);
     }
 
 //    public static boolean isMyServiceRunning(Context context, Class<?> serviceClass) {
