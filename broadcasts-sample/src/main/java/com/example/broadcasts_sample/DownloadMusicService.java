@@ -43,6 +43,7 @@ public class DownloadMusicService extends IntentService {
         Intent progressIntent = new Intent(ACTION_DOWNLOAD_STATUS);
         progressIntent.putExtra(DOWNLOAD_PERCENTAGE, 0);
         broadcastManager.sendBroadcast(progressIntent);
+//        this.sendBroadcast(intent);
 
         try {
             Thread.sleep(1000);
