@@ -131,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
         downloadMusicReceiver = new DownloadMusicReceiver();
         connectivityChangeReceiver = new ConnectivityChangeReceiver();
         smsReceiver = new SMSReceiver();
+
+        // Grant SMS permission
     }
 
     public void clickSubmit(View view) {
@@ -152,9 +154,24 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter connectionFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         this.registerReceiver(connectivityChangeReceiver, connectionFilter);
 
+//        IntentFilter intentFilter1 = new IntentFilter(DownloadMusicService.ACTION_DOWNLOAD_STATUS);
+//        this.registerReceiver(downloadMusicReceiver, intentFilter1,
+//                Manifest.permission.READ_EXTERNAL_STORAGE, null);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         // Register receiver for SMS
         IntentFilter smsFilter = new IntentFilter(ACTION_RECEIVE_SMS);
         this.registerReceiver(smsReceiver, smsFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // unregister receiving sms
+        this.unregisterReceiver(smsReceiver);
     }
 
     @Override
@@ -165,8 +182,5 @@ public class MainActivity extends AppCompatActivity {
 
         // unregister connectivity change
         this.unregisterReceiver(connectivityChangeReceiver);
-
-        // unregister receiving sms
-        this.unregisterReceiver(smsReceiver);
     }
 }

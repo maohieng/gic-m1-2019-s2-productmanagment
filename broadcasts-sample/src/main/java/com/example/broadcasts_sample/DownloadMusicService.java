@@ -14,7 +14,7 @@ public class DownloadMusicService extends IntentService {
     /**
      * Broadcast identifier
      */
-    public static final String ACTION_DOWNLOAD_STATUS = "com.example.broadcasts_sample.ACTION.DOWNLOAD_PROGRESS";
+    public static final String ACTION_DOWNLOAD_STATUS = "com.example.broadcasts_sample.action.DOWNLOAD_PROGRESS";
 
     public static final String DOWNLOAD_PERCENTAGE = "DOWNLOAD_PERCENTAGE";
 
@@ -43,7 +43,8 @@ public class DownloadMusicService extends IntentService {
         Intent progressIntent = new Intent(ACTION_DOWNLOAD_STATUS);
         progressIntent.putExtra(DOWNLOAD_PERCENTAGE, 0);
         broadcastManager.sendBroadcast(progressIntent);
-//        this.sendBroadcast(intent);
+
+//        this.sendBroadcast(intent, Manifest.permission.READ_EXTERNAL_STORAGE);
 
         try {
             Thread.sleep(1000);
