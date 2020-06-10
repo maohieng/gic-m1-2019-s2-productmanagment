@@ -1,3 +1,5 @@
+include ':app-specific-storage'
+include ':app-specific-storage-sample'
 rootProject.name='ProductManagment'
 include ':app'
 include ':databinding-sample'
