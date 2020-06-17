@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SharedPreference-Sample</string>
+
+    <string name="sharedpref_sample_filename" translatable="false">com.example.sharedpreference_sample.sample</string>
+    <string name="sharedpref_first_start" translatable="false">firstStart</string>
+</resources>
